@@ -1,0 +1,24 @@
+{
+  "textToSpeech": {
+    "defaultState": {
+      "text": "Good morning, thank you for calling Riverside Family Clinic. This is Taylor, your healthcare coordinator. How can I assist you today?",
+      "voice": "Andromeda",
+      "language": "En-US",
+      "role": "Healthcare coordinator",
+      "speed": "1x",
+      "placeholder": "Type your message here..."
+    },
+
+    "newTextSamples": {
+      "orca": "There are three distinct orca populations—called ecotypes—in the northeastern Pacific, each with a different appearance, habitat, and diet.",
+      "detective": "Detective Benoit Blanc teams up with an earnest young priest to investigate a perfectly impossible crime at a small-town church with a dark history."
+    },
+    
+    "dropdownSelections": {
+      "voice": ["Aurelie", "Astra"],
+      "language": ["Fr-FR", "Es-ES"],
+      "role": ["Customer service"],
+      "speed": ["0.5x", "1x", "1.5x", "2x"]
+    }
+  }
+}
