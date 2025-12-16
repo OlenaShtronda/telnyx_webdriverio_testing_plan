@@ -13,7 +13,7 @@ describe('Shop page tests', () => {
       await shopPage.clickSearchButtonToOpenSearchModal();
       await shopPage.setSearchItem(item);
       await shopPage.assertSearchInputHasSearchItem(item);
-      await shopPage.pressEnter();
+      await shopPage.clickSearchIcon();
       await shopPage.assertFirstProductTitleContains(item);
     }
   });

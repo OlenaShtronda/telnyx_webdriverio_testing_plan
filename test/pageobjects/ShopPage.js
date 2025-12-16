@@ -4,6 +4,7 @@ import BasePage from './BasePage.js';
 class ShopPage extends BasePage {
   get searchButton() { return $('summary[aria-label="Search"]') };
   get searchInput() { return $('#Search-In-Modal') };
+  get searchIcon() { return $('button[aria-label="Search"]'); }
   get firstProductTitle() { return $('.card__heading.h5 a') };
 
   get cartIcon() { return $('#cart-icon-bubble'); }
@@ -14,8 +15,8 @@ class ShopPage extends BasePage {
   get currencySelectorButton() { return $('button.localization-form__select'); }
   get currencyList() { return $('#FooterCountryList'); }
   get productPriceItems() { return $$('.product-grid li'); }
+  get emptyCartText() { return $('//*[contains(text(), "Your cart is empty")]') }
 
-  emptyCartText = 'Your cart is empty';
   addToCartButtonText = 'Add to cart';
 
   async open() {
@@ -28,8 +29,7 @@ class ShopPage extends BasePage {
   }
 
   async assertCartIsEmpty() {
-    const emptyText = await $(`//*[contains(text(), "${this.emptyCartText}")]`);
-    await expect(emptyText).toBeDisplayed();
+    await expect(this.emptyCartText).toBeDisplayed();
   }
 
   async clickCloseCartButtonToCloseCart() {
@@ -76,8 +76,8 @@ class ShopPage extends BasePage {
     await this.searchInput.setValue(text);
   }
 
-  async pressEnter() {
-    await browser.keys('Enter');    
+  async clickSearchIcon() {
+    await this.searchIcon.click();    
   }
 
   async assertSearchInputHasSearchItem(text) {
