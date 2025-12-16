@@ -6,13 +6,30 @@
     "@wdio/cli": "^9.21.1",
     "@wdio/local-runner": "^9.21.0",
     "@wdio/mocha-framework": "^9.21.0",
-    "@wdio/spec-reporter": "^9.20.0"
+    "@wdio/spec-reporter": "^9.20.0",
+    "cross-env": "^10.1.0"
   },
   "scripts": {
-    "test": "wdio wdio.chrome.conf.js",
-    "test:chrome": "wdio wdio.chrome.conf.js",
-    "test:firefox": "wdio wdio.firefox.conf.js",
-    "test:edge": "wdio wdio.edge.conf.js",
-    "test:all": "wdio wdio.multibrowser.conf.js"
+    "test": "npm run test:chrome:en",
+
+    "test:all:chrome": "cross-env ENV=prodEn wdio wdio.chrome.conf.js",
+    "test:all:firefox": "cross-env ENV=prodEn wdio wdio.firefox.conf.js",
+    "test:all:edge": "cross-env ENV=prodEn wdio wdio.edge.conf.js",
+
+    "test:spec:chrome": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.chrome.conf.js",
+    "test:spec:firefox": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.firefox.conf.js",
+    "test:spec:edge": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.edge.conf.js",
+
+    "test:chrome:en": "cross-env ENV=prodEn wdio wdio.chrome.conf.js",
+    "test:chrome:fr": "cross-env ENV=prodFr wdio wdio.chrome.conf.js",
+    "test:chrome:es": "cross-env ENV=prodEs wdio wdio.chrome.conf.js",
+
+    "test:firefox:en": "cross-env ENV=prodEn wdio wdio.firefox.conf.js",
+    "test:firefox:fr": "cross-env ENV=prodFr wdio wdio.firefox.conf.js",
+    "test:firefox:es": "cross-env ENV=prodEs wdio wdio.firefox.conf.js",
+
+    "test:edge:en": "cross-env ENV=prodEn wdio wdio.edge.conf.js",
+    "test:edge:fr": "cross-env ENV=prodFr wdio wdio.edge.conf.js",
+    "test:edge:es": "cross-env ENV=prodEs wdio wdio.edge.conf.js"
   }
 }

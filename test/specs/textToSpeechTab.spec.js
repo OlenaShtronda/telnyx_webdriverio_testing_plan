@@ -1,8 +1,13 @@
 import { browser } from '@wdio/globals';
 import homepage from '../pageobjects/HomePage.js';
-import homeTestData from '../fixtures/homeTestData.json';
+import fs from 'fs';
 
-describe('Text to speech tab', () => {
+const testDataPath = browser.config.params?.testDataFile;
+const homeTestData = testDataPath
+  ? JSON.parse(fs.readFileSync(testDataPath, 'utf-8'))
+  : null;
+
+describe('[ENV] Text to speech tab', () => {
   beforeEach('Open Text-to-Speech tab', async () => {
     await homepage.open();
     await homepage.assertTextToSpeechTabIsDisplayedAndClickable();

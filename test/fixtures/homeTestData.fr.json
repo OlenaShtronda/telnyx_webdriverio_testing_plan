@@ -1,0 +1,24 @@
+{
+  "textToSpeech": {
+    "defaultState": {
+      "text": "Good morning, thank you for calling Riverside Family Clinic. This is Taylor, your healthcare coordinator. How can I assist you today?",
+      "voice": "Andromeda",
+      "language": "En-US",
+      "role": "Healthcare coordinator",
+      "speed": "1x",
+      "placeholder": "Type your message here..."
+    },
+
+    "newTextSamples": {
+      "orca": "Il existe trois populations d'orques distinctes — appelées écotypes — dans le Pacifique Nord-Est, chacune ayant une apparence, un habitat et un régime alimentaire différents.",
+      "detective": "L'inspecteur Benoît Blanc fait équipe avec un jeune prêtre sincère pour enquêter sur un crime parfaitement impossible dans une petite église de province au passé sombre."
+    },
+    
+    "dropdownSelections": {
+      "voice": ["Aurelie"],
+      "language": ["Fr-FR"],
+      "role": ["Customer service"],
+      "speed": ["0.5x", "1x", "1.5x", "2x"]
+    }
+  }
+}
