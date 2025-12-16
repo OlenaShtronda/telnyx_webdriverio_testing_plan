@@ -23,8 +23,20 @@ jobs:
       run: npm ci
 
     - name: Run WDIO tests
-      run: npx wdio run ./wdio.chrome.conf.js
+      run: npx wdio run ./wdio.multibrowser.conf.js
       continue-on-error: true
+
+    # - name: Run WDIO Chrome tests
+    #   run: npx wdio run ./wdio.chrome.conf.js
+    #   continue-on-error: true
+
+    # - name: Run WDIO Firefox tests
+    #   run: npx wdio run ./wdio.firefox.conf.js
+    #   continue-on-error: true
+
+    # - name: Run WDIO Edge tests
+    #   run: npx wdio run ./wdio.edge.conf.js
+    #   continue-on-error: true
 
     - name: Download previous history
       if: always()
