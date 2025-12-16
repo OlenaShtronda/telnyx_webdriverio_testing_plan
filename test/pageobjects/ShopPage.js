@@ -1,4 +1,4 @@
-import { browser, $, expect } from '@wdio/globals';
+import { $, expect } from '@wdio/globals';
 import BasePage from './BasePage.js';
 
 class ShopPage extends BasePage {

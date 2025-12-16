@@ -24,7 +24,7 @@ export const config = {
     testDataFile: selectedEnv.testDataFile
   },
 
-  maxInstances: 10,
+  maxInstances: 5,
 
   logLevel: 'info',
   bail: 0,
