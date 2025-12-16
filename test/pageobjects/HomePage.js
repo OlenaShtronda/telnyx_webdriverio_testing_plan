@@ -2,7 +2,7 @@ import { $, expect } from '@wdio/globals';
 import BasePage from './BasePage.js';
 
 class Homepage extends BasePage {
-  get heroTitle() { return $('//*[contains(text(), "Conversational AI") or contains(text(), "Text To Speech") or contains(text(), "Speech To Text")]'); }
+  get voiceNetworkHeading() { return $('//h2[contains(text(), "THE VOICE NETWORK BUILT FOR")]'); }
   get textToSpeechTab() { return $('button[aria-label="Text to speech"]'); }
   get speechToTextTab() { return $('button[aria-label="Speech to text"]'); }
   get hdVoiceAITab() { return $('button[aria-label="HD Voice AI"]'); }
@@ -28,8 +28,8 @@ class Homepage extends BasePage {
     await super.openHomePage();
   }
 
-  async assertHeroTitleIsDisplayed() {
-    await expect(this.heroTitle).toBeDisplayed();
+  async assertVoiceNetworkHeadingIsDisplayed() {
+    await expect(this.voiceNetworkHeading).toBeDisplayed();
   }
 
   async clickTextToSpeech() {

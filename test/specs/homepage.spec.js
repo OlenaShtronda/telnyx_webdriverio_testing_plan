@@ -6,8 +6,8 @@ describe('Homepage tests', () => {
     await homepage.open();
   });
 
-  it('should display hero title', async () => {
-    await homepage.assertHeroTitleIsDisplayed();
+  it('should display The Voice Network heading', async () => {
+    await homepage.assertVoiceNetworkHeadingIsDisplayed();
   });
 
   it('switches to Text to speech', async () => {
