@@ -50,45 +50,40 @@ npm ci
 │
 ├── docker/
 │   ├── Dockerfile
-│   └── allure-results/
+│   └── docker-compose.yml
 │
 ├── test/
 │   ├── fixtures/
+│   │   ├── homeTestData.de.json
 │   │   ├── homeTestData.en.json
 │   │   ├── homeTestData.fr.json
-│   │   ├── homeTestData.de.json
 │   │   └── shopTestData.json
 │   │
 │   ├── pageobjects/
 │   │   ├── BasePage.js
-│   │   ├── HomePage.js
 │   │   ├── ContactUsPage.js
+│   │   ├── HomePage.js
 │   │   ├── LoginPage.js
 │   │   ├── ShopPage.js
 │   │   └── SignupPage.js
 │   │
 │   └── specs/
-│       ├── homepage.spec.js
 │       ├── contactUs.spec.js
+│       ├── homepage.spec.js
 │       ├── login.spec.js
 │       ├── shop.spec.js
 │       ├── signup.spec.js
 │       └── textToSpeechTab.spec.js
 │
-├── allure-results/
-├── allure-report/
-│
-├── docker-compose.yml
-├── package.json
-├── package-lock.json
 ├── .gitignore
-│
+├── README.md
+├── package-lock.json
+├── package.json
 ├── wdio.base.conf.js
 ├── wdio.chrome.conf.js
-├── wdio.firefox.conf.js
 ├── wdio.edge.conf.js
-│
-└── README.md
+├── wdio.firefox.conf.js
+└── wdio.multibrowser.conf.js
 ```
 
 ## Environments & Localization
