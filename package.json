@@ -21,12 +21,12 @@
     "test:spec:edge": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.edge.conf.js",
     "test:chrome:en": "cross-env ENV=prodEn wdio wdio.chrome.conf.js",
     "test:chrome:fr": "cross-env ENV=prodFr wdio wdio.chrome.conf.js",
-    "test:chrome:es": "cross-env ENV=prodEs wdio wdio.chrome.conf.js",
+    "test:chrome:de": "cross-env ENV=prodDe wdio wdio.chrome.conf.js",
     "test:firefox:en": "cross-env ENV=prodEn wdio wdio.firefox.conf.js",
     "test:firefox:fr": "cross-env ENV=prodFr wdio wdio.firefox.conf.js",
-    "test:firefox:es": "cross-env ENV=prodEs wdio wdio.firefox.conf.js",
+    "test:firefox:de": "cross-env ENV=prodDe wdio wdio.firefox.conf.js",
     "test:edge:en": "cross-env ENV=prodEn wdio wdio.edge.conf.js",
     "test:edge:fr": "cross-env ENV=prodFr wdio wdio.edge.conf.js",
-    "test:edge:es": "cross-env ENV=prodEs wdio wdio.edge.conf.js"
+    "test:edge:de": "cross-env ENV=prodDe wdio wdio.edge.conf.js"
   }
 }

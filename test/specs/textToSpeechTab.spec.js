@@ -1,13 +1,26 @@
 import { browser } from '@wdio/globals';
 import homepage from '../pageobjects/HomePage.js';
 import fs from 'fs';
+import path from 'path';
 
-const testDataPath = browser.config.params?.testDataFile;
-const homeTestData = testDataPath
-  ? JSON.parse(fs.readFileSync(testDataPath, 'utf-8'))
-  : null;
+let homeTestData;
 
 describe('[ENV] Text to speech tab', () => {
+
+  before(async () => {
+    const relativePath = browser.options.params.testDataFile;
+
+    if (!relativePath) {
+      throw new Error('testDataFile is not defined in WDIO params');
+    }
+
+    const absolutePath = path.resolve(process.cwd(), relativePath);
+
+    homeTestData = JSON.parse(
+      fs.readFileSync(absolutePath, 'utf-8')
+    );
+  });
+
   beforeEach('Open Text-to-Speech tab', async () => {
     await homepage.open();
     await homepage.assertTextToSpeechTabIsDisplayedAndClickable();

@@ -1,17 +1,17 @@
 export const environments = {
-    prodEn: {
-        baseUrl: 'https://telnyx.com',
-        language: 'En-US',
-        testDataFile: './fixtures/homeTestData.en.json'
-    },
-    prodFr: {
-        baseUrl: 'https://telnyx.com',
-        language: 'Fr-FR',
-        testDataFile: './fixtures/homeTestData.fr.json'
-    },
-    prodEs: {
-        baseUrl: 'https://telnyx.com',
-        language: 'Es-ES',
-        testDataFile: './fixtures/homeTestData.es.json'
-    }
+  prodEn: {
+    baseUrl: 'https://telnyx.com',
+    language: 'En-US',
+    testDataFile: './test/fixtures/homeTestData.en.json'
+  },
+  prodFr: {
+    baseUrl: 'https://telnyx.com',
+    language: 'Fr-FR',
+    testDataFile: './test/fixtures/homeTestData.fr.json'
+  },
+  prodDe: {
+    baseUrl: 'https://telnyx.com',
+    language: 'De-DE',
+    testDataFile: './test/fixtures/homeTestData.de.json'
+  }
 };

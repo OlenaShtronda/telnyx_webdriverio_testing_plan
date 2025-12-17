@@ -10,13 +10,13 @@
     },
 
     "newTextSamples": {
-      "orca": "Hay tres poblaciones distintas de orcas, llamadas ecotipos, en el Pacífico nororiental, cada una con apariencia, hábitat y dieta diferentes.",
-      "detective": "El detective Benoit Blanc se asocia con un joven sacerdote sincero para investigar un crimen perfectamente imposible en la iglesia de un pequeño pueblo con una historia oscura."
+      "orca": "Im nordöstlichen Pazifik gibt es drei verschiedene Orca-Populationen – sogenannte Ökotypen –, die sich jeweils in Aussehen, Lebensraum und Ernährung unterscheiden.",
+      "detective": "Kommissar Benoit Blanc tut sich mit einem aufrichtigen jungen Priester zusammen, um ein völlig unmögliches Verbrechen in einer Kleinstadtkirche mit düsterer Vergangenheit aufzuklären."
     },
     
     "dropdownSelections": {
-      "voice": ["Lark"],
-      "language": ["Es-ES"],
+      "voice": ["Sigurd"],
+      "language": ["De-DE"],
       "role": ["Customer service"],
       "speed": ["0.5x", "1x", "1.5x", "2x"]
     }
