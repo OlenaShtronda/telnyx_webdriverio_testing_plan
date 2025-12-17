@@ -1,4 +1,5 @@
 import { environments } from './config/environments.js';
+import path from 'path';
 
 const ENV = process.env.ENV || 'prodEn';
 const SPEC = process.env.SPEC;
@@ -21,7 +22,8 @@ export const config = {
 
   params: {
     language: selectedEnv.language,
-    testDataFile: selectedEnv.testDataFile
+    // testDataFile: selectedEnv.testDataFile
+    testDataFile: path.resolve(process.cwd(), selectedEnv.testDataFile)
   },
 
   maxInstances: 5,

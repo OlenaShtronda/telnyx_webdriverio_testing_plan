@@ -8,6 +8,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    # There's a race condition on step where history is pushed to Git.
+    # I don't know how to resolve it.
+    # strategy:
+    #   matrix:
+    #     browser: [chrome, firefox, MicrosoftEdge]
+    #     env: [prodEn, prodFr, prodDe]
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -23,7 +30,8 @@ jobs:
       run: npm ci
 
     - name: Run WDIO tests
-      run: npx wdio run ./wdio.multibrowser.conf.js
+      # run: npm run test:${{ matrix.browser }}:${{ matrix.env }}
+      run: npm run test:all
       continue-on-error: true
 
     - name: Download previous history
@@ -32,6 +40,7 @@ jobs:
       with:
         ref: gh-pages
         path: gh-pages
+        fetch-depth: 1
       continue-on-error: true
 
     - name: Copy history
