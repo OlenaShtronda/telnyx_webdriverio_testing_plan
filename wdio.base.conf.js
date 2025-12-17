@@ -3,6 +3,7 @@ import path from 'path';
 
 const ENV = process.env.ENV || 'prodEn';
 const SPEC = process.env.SPEC;
+const SELENIUM_REMOTE_URL = process.env.SELENIUM_REMOTE_URL;
 
 if (!environments[ENV]) {
   throw new Error(
@@ -11,9 +12,16 @@ if (!environments[ENV]) {
 }
 
 const selectedEnv = environments[ENV];
+const seleniumUrl = SELENIUM_REMOTE_URL
+  ? new URL(SELENIUM_REMOTE_URL)
+  : undefined;
 
 export const config = {
   runner: 'local',
+
+  hostname: seleniumUrl?.hostname,
+  port: seleniumUrl?.port ? Number(seleniumUrl.port) : undefined,
+  path: seleniumUrl?.pathname || undefined,
 
   specs: SPEC ? [SPEC] : ['./test/specs/**/*.js'],
   exclude: [],
@@ -22,11 +30,10 @@ export const config = {
 
   params: {
     language: selectedEnv.language,
-    // testDataFile: selectedEnv.testDataFile
     testDataFile: path.resolve(process.cwd(), selectedEnv.testDataFile)
   },
 
-  maxInstances: 5,
+  maxInstances: 2,
 
   logLevel: 'info',
   bail: 0,

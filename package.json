@@ -47,6 +47,16 @@
     "test:spec:firefox": "npm run test:spec:firefox:en && npm run test:spec:firefox:fr && npm run test:spec:firefox:de",
     "test:spec:edge": "npm run test:spec:edge:en && npm run test:spec:edge:fr && npm run test:spec:edge:de",
 
-    "test:spec:browsers": "npm run test:spec:chrome && npm run test:spec:firefox && npm run test:spec:edge"
+    "test:spec:browsers": "npm run test:spec:chrome && npm run test:spec:firefox && npm run test:spec:edge",
+
+    "test:docker:chrome": "cross-env SELENIUM_REMOTE_URL=http://selenium-chrome:4444/wd/hub npm run test:chrome",
+    "test:docker:firefox": "cross-env SELENIUM_REMOTE_URL=http://selenium-firefox:4444/wd/hub npm run test:firefox",
+    "test:docker:edge": "cross-env SELENIUM_REMOTE_URL=http://selenium-edge:4444/wd/hub npm run test:edge",
+
+    "test:docker:all": "npm run test:docker:chrome && npm run test:docker:firefox && npm run test:docker:edge",
+
+    "test:docker:spec:chrome": "cross-env SELENIUM_REMOTE_URL=http://selenium-chrome:4444/wd/hub npm run test:spec:chrome",
+    "test:docker:spec:firefox": "cross-env SELENIUM_REMOTE_URL=http://selenium-firefox:4444/wd/hub npm run test:spec:firefox",
+    "test:docker:spec:edge": "cross-env SELENIUM_REMOTE_URL=http://selenium-edge:4444/wd/hub npm run test:spec:edge"
   }
 }

@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  selenium-chrome:
+    image: selenium/standalone-chrome:latest
+    container_name: selenium-chrome
+    ports:
+      - 4444:4444
+    shm_size: 2gb
+
+  selenium-firefox:
+    image: selenium/standalone-firefox:latest
+    container_name: selenium-firefox
+    ports:
+      - 4445:4444
+    shm_size: 2gb
+
+  selenium-edge:
+    image: selenium/standalone-edge:latest
+    container_name: selenium-edge
+    ports:
+      - 4446:4444
+    shm_size: 2gb
+
+  tests:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: telnyx-tests
+    depends_on:
+      - selenium-chrome
+      - selenium-firefox
+      - selenium-edge
+    volumes:
+      - ./allure-results:/usr/src/app/allure-results
+    command: npm run test:docker:all
