@@ -12,21 +12,41 @@
     "cross-env": "^10.1.0"
   },
   "scripts": {
-    "test": "npm run test:chrome:en",
-    "test:all:chrome": "cross-env ENV=prodEn wdio wdio.chrome.conf.js",
-    "test:all:firefox": "cross-env ENV=prodEn wdio wdio.firefox.conf.js",
-    "test:all:edge": "cross-env ENV=prodEn wdio wdio.edge.conf.js",
-    "test:spec:chrome": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.chrome.conf.js",
-    "test:spec:firefox": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.firefox.conf.js",
-    "test:spec:edge": "cross-env ENV=prodEn SPEC=$npm_config_spec wdio wdio.edge.conf.js",
+    "test:all": "npm run test:chrome && npm run test:firefox && npm run test:edge",
+    "test:spec:all": "npm run test:spec:browsers",
+
+    "test:chrome": "npm run test:chrome:en && npm run test:chrome:fr && npm run test:chrome:de",
+    "test:firefox": "npm run test:firefox:en && npm run test:firefox:fr && npm run test:firefox:de",
+    "test:edge": "npm run test:edge:en && npm run test:edge:fr && npm run test:edge:de",
+
     "test:chrome:en": "cross-env ENV=prodEn wdio wdio.chrome.conf.js",
     "test:chrome:fr": "cross-env ENV=prodFr wdio wdio.chrome.conf.js",
     "test:chrome:de": "cross-env ENV=prodDe wdio wdio.chrome.conf.js",
+
     "test:firefox:en": "cross-env ENV=prodEn wdio wdio.firefox.conf.js",
     "test:firefox:fr": "cross-env ENV=prodFr wdio wdio.firefox.conf.js",
     "test:firefox:de": "cross-env ENV=prodDe wdio wdio.firefox.conf.js",
+
     "test:edge:en": "cross-env ENV=prodEn wdio wdio.edge.conf.js",
     "test:edge:fr": "cross-env ENV=prodFr wdio wdio.edge.conf.js",
-    "test:edge:de": "cross-env ENV=prodDe wdio wdio.edge.conf.js"
+    "test:edge:de": "cross-env ENV=prodDe wdio wdio.edge.conf.js",
+
+    "test:spec:chrome:en": "cross-env ENV=prodEn SPEC=./test/specs/$npm_config_spec wdio wdio.chrome.conf.js",
+    "test:spec:chrome:fr": "cross-env ENV=prodFr SPEC=./test/specs/$npm_config_spec wdio wdio.chrome.conf.js",
+    "test:spec:chrome:de": "cross-env ENV=prodDe SPEC=./test/specs/$npm_config_spec wdio wdio.chrome.conf.js",
+    
+    "test:spec:firefox:en": "cross-env ENV=prodEn SPEC=./test/specs/$npm_config_spec wdio wdio.firefox.conf.js",
+    "test:spec:firefox:fr": "cross-env ENV=prodFr SPEC=./test/specs/$npm_config_spec wdio wdio.firefox.conf.js",
+    "test:spec:firefox:de": "cross-env ENV=prodDe SPEC=./test/specs/$npm_config_spec wdio wdio.firefox.conf.js",
+    
+    "test:spec:edge:en": "cross-env ENV=prodEn SPEC=./test/specs/$npm_config_spec wdio wdio.edge.conf.js",
+    "test:spec:edge:fr": "cross-env ENV=prodFr SPEC=./test/specs/$npm_config_spec wdio wdio.edge.conf.js",
+    "test:spec:edge:de": "cross-env ENV=prodDe SPEC=./test/specs/$npm_config_spec wdio wdio.edge.conf.js",
+    
+    "test:spec:chrome": "npm run test:spec:chrome:en && npm run test:spec:chrome:fr && npm run test:spec:chrome:de",
+    "test:spec:firefox": "npm run test:spec:firefox:en && npm run test:spec:firefox:fr && npm run test:spec:firefox:de",
+    "test:spec:edge": "npm run test:spec:edge:en && npm run test:spec:edge:fr && npm run test:spec:edge:de",
+
+    "test:spec:browsers": "npm run test:spec:chrome && npm run test:spec:firefox && npm run test:spec:edge"
   }
 }
