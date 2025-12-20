@@ -7,7 +7,7 @@ describe('Contact Us form tests', () => {
       await homePage.clickContactUsLink();
     });
 
-    it('displays required fields with labels and enabled Submit button', async () => {
+    it('Verify required fields with labels and enabled "Submit" button', async () => {
       await contactUsPage.assertRequiredFieldsAreDisplayed();
       await contactUsPage.assertSubmitButtonIsDisplayedAndEnabled();
     });

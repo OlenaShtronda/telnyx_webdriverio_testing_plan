@@ -1,24 +1,13 @@
 import { browser } from '@wdio/globals';
 import homepage from '../pageobjects/HomePage.js';
-import fs from 'fs';
-import path from 'path';
+import TestDataHelper from '../helpers/testDataHelper.js';
 
 let homeTestData;
 
 describe('[ENV] Text to speech tab', () => {
 
   before(async () => {
-    const relativePath = browser.options.params.testDataFile;
-
-    if (!relativePath) {
-      throw new Error('testDataFile is not defined in WDIO params');
-    }
-
-    const absolutePath = path.resolve(process.cwd(), relativePath);
-
-    homeTestData = JSON.parse(
-      fs.readFileSync(absolutePath, 'utf-8')
-    );
+    homeTestData = TestDataHelper.loadTestData();
   });
 
   beforeEach('Open Text-to-Speech tab', async () => {
@@ -27,7 +16,7 @@ describe('[ENV] Text to speech tab', () => {
     await homepage.clickTextToSpeech();
   });
 
-  it('shows correct default state on Text to Speech tab', async () => {
+  it('Verify the correct default state is displayed on the "Text to Speech" tab', async () => {
     const { defaultState } = homeTestData.textToSpeech;
 
     await homepage.assertTextAreaIsDisplayed();
@@ -39,7 +28,7 @@ describe('[ENV] Text to speech tab', () => {
     await homepage.assertPlayAudioButtonIsDisplayedAndEnabled();
   });
 
-  it('keeps text input value after dropdown changes', async () => {
+  it('Verify the text input value is preserved after changing dropdown values', async () => {
     const { newTextSamples, dropdownSelections } = homeTestData.textToSpeech;
 
     await homepage.clearTextArea();
@@ -56,7 +45,7 @@ describe('[ENV] Text to speech tab', () => {
     await homepage.assertTextAreaValue(newTextSamples.orca);
   });
 
-  it('allows clearing sample text and entering new text', async () => {
+  it('Verify clearing the sample text and entering new text is allowed', async () => {
     const { defaultState, newTextSamples } = homeTestData.textToSpeech;
 
     await homepage.clearTextArea();
@@ -67,14 +56,14 @@ describe('[ENV] Text to speech tab', () => {
     await homepage.assertTextAreaValue(newTextSamples.orca);
   });
 
-  it('allows selecting values from all dropdowns', async () => {
+  it('Verify selecting values from all dropdowns is allowed', async () => {
     await homepage.selectFromDropdown('Voice', 'Astra');
     await homepage.selectFromDropdown('Language', 'Es-ES');
     await homepage.selectFromDropdown('Role', 'Customer service');
     await homepage.selectFromDropdown('Speed', '2x');
   });
 
-  it('allows selecting all Speed options without resetting text', async () => {
+  it('Verify selecting all Speed options does not reset the text', async () => {
     const { newTextSamples, dropdownSelections, defaultState } = homeTestData.textToSpeech;
 
     await homepage.clearTextArea();
@@ -91,7 +80,7 @@ describe('[ENV] Text to speech tab', () => {
     }
   });
 
-  it('resets to default state after page reload', async () => {
+  it('Verify the default state is restored after page reload', async () => {
     const { defaultState } = homeTestData.textToSpeech;
 
     await homepage.assertSpeedDropdownHasCorrectValue(defaultState.speed);

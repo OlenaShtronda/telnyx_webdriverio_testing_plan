@@ -6,7 +6,7 @@ describe('Login page tests', () => {
       await loginPage.open();
     });
 
-  it('Business email field should not accept invalid password', async () => {
+  it('Verify business email field does not accept invalid password', async () => {
     const randomEmail = faker.internet.email();
     const invalidEmail = randomEmail.replace('@', '');
 
@@ -16,7 +16,7 @@ describe('Login page tests', () => {
     await loginPage.assertLoginPageUrl();
   });
 
-  it('displays required email, password fields with labels and enabled Login button', async () => {
+  it('Verify required email, password fields with labels and enabled "Login" button', async () => {
     await loginPage.assertFieldsAreDisplayedAndRequired();
     await loginPage.assertFieldLabelsAreDisplayed();
     await loginPage.assertLoginButtonIsDisplayedAndEnabled();

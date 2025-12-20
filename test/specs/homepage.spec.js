@@ -6,27 +6,27 @@ describe('Homepage tests', () => {
     await homepage.open();
   });
 
-  it('should display The Voice Network heading', async () => {
+  it('Verify the "The Voice Network" heading is displayed', async () => {
     await homepage.assertVoiceNetworkHeadingIsDisplayed();
   });
 
-  it('switches to Text to speech', async () => {
+  it('Verify switching to the "Text to Speech" tab', async () => {
     await homepage.clickTextToSpeech();
     await homepage.assertEffortlessTextToSpeechTextIsDisplayed();
   });
 
-  it('switches to Speech to text', async () => {
+  it('Verify switching to the "Speech to Text" tab', async () => {
     await homepage.clickSpeechToText();
     await homepage.assertRealTimeTranscriptionTextIsDisplayed();
   });
 
-  it('switches to HD Voice AI', async () => {
+  it('Verify switching to the "HD Voice AI" tab', async () => {
     await homepage.clickTextToSpeech();
     await homepage.clickHDVoiceAI();
     await homepage.assertTrueHDVoiceE2ETextIsDisplayed();
   });
 
-  it('navigates to Contact Us page', async () => {
+  it('Verify navigation to the "Contact Us" page', async () => {
     await homepage.clickContactUsLink();
     await contactUsPage.assertContactUsPageIsOpened();
   });

@@ -6,7 +6,7 @@ describe('Shop page tests', () => {
     await shopPage.open();
   });
 
-  it('should allow searching products and display correct results for available products', async () => {
+  it('Verify searching for products and displaying output for available products', async () => {
     for (const item of shopTestData.searchItems) {
       console.log(`Testing search item: ${item}`);
 
@@ -18,7 +18,7 @@ describe('Shop page tests', () => {
     }
   });
 
-  it('should have at least 1 item in the cart after adding', async () => {
+  it('Verify at least one item is added to the cart', async () => {
     await shopPage.clickCartIconToOpenCart();
     await shopPage.assertCartIsEmpty();
     await shopPage.clickCloseCartButtonToCloseCart();
@@ -27,13 +27,13 @@ describe('Shop page tests', () => {
     await shopPage.assertCartHasAtLeastOneItem();
   });
 
-  it('should show an empty cart after removing the last product', async () => {
+  it('Verify the cart is empty after removing the last product', async () => {
       await shopPage.addFirstProductToCart();
       await shopPage.removeFirstProduct();
       await shopPage.assertCartIsEmpty();
     });
 
-  it('should correctly change currencies and verify prices', async () => {
+  it('Verify changing currencies and validating displayed prices', async () => {
     for (const currency of shopTestData.currencies) {
       console.log(`Testing currency: code=${currency.code}, symbol=${currency.symbol}`);
 

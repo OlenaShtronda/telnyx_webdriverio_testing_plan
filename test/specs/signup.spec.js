@@ -7,11 +7,11 @@ describe('Sign-up form content tests', () => {
     await homepage.clickSignUpLink();
   });
 
-  it('should display all required form fields and checkboxes', async () => {
+  it('Verify all required form fields and checkboxes are displayed', async () => {
     await signUpPage.assertRequiredFieldsAndCheckboxesAreDisplayed();
   });
 
-  it('should reveal promo code field with correct labels after clicking "Apply a promo code"', async () => {
+  it('Verify the promo code field is revealed with correct labels after clicking "Apply a promo code"', async () => {
     await signUpPage.assertPromoCodeFieldIsInitiallyHidden();
     await signUpPage.clickApplyAPromoCodeButton();
     await signUpPage.assertPromoCodeFieldIsDisplayed();
